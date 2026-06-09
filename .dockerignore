@@ -1,0 +1,64 @@
+# Laravel specific
+.env
+.env.*
+!.env.example
+!docker.env
+
+# Dependencies
+node_modules
+vendor
+
+# Build artifacts
+public/build
+public/hot
+
+# Development files
+.git
+.gitignore
+.gitattributes
+.editorconfig
+.vscode
+.idea
+
+# Testing
+tests
+phpunit.xml
+.phpunit.result.cache
+
+# Documentation
+*.md
+!DOCKER_README.md
+
+# Logs
+storage/logs/*
+!storage/logs/.gitignore
+
+# Cache
+storage/framework/cache/*
+!storage/framework/cache/.gitignore
+storage/framework/sessions/*
+!storage/framework/sessions/.gitignore
+storage/framework/views/*
+!storage/framework/views/.gitignore
+
+# Uploads (will be mounted as volume)
+public/uploads/*
+!public/uploads/.gitignore
+
+# Development tools
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.sql
+*.tar.gz
+*.zip
+
+# Temporary files
+*.tmp
+*.temp

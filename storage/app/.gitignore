@@ -1,0 +1,7 @@
+*
+!lang/
+!temp/
+!backups/
+!private/
+!public/
+!.gitignore

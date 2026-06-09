@@ -1,0 +1,102 @@
+/* Video Player Customization */
+:root {
+   /* Main Colors */
+   --plyr-color-main: #3b82f6; /* blue-500 */
+   --plyr-video-background: transparent;
+
+   /* Controls */
+   --plyr-control-color: #1f2937; /* gray-800 */
+   --plyr-control-color-hover: #111827; /* gray-900 */
+   --plyr-control-bg-hover: rgba(0, 0, 0, 0.1);
+
+   /* Progress Bar */
+   --plyr-range-track-background: #e5e7eb; /* gray-200 */
+   --plyr-range-fill-background: var(--plyr-color-main);
+   --plyr-range-thumb-height: 12px;
+   --plyr-range-thumb-background: white;
+   --plyr-range-thumb-border: 2px solid var(--plyr-color-main);
+   --plyr-range-thumb-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+   --plyr-range-thumb-active-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+
+   /* Tooltips */
+   --plyr-tooltip-background: #1f2937; /* gray-800 */
+   --plyr-tooltip-color: #f9fafb; /* gray-50 */
+   --plyr-tooltip-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+   /* Menu */
+   --plyr-menu-background: white;
+   --menu-color: #1f2937; /* gray-800 */
+   --menu-border-color: #e5e7eb; /* gray-200 */
+   --menu-arrow-color: #9ca3af; /* gray-400 */
+
+   /* Control Bar */
+   --plyr-controls-background: rgba(255, 255, 255, 0.9);
+   --plyr-controls-border: 1px solid #e5e7eb; /* gray-200 */
+}
+
+/* Dark Mode */
+.dark {
+   --plyr-control-color: #f9fafb; /* gray-50 */
+   --plyr-control-color-hover: white;
+   --plyr-control-bg-hover: rgba(255, 255, 255, 0.1);
+   --plyr-range-track-background: #4b5563; /* gray-600 */
+   --plyr-menu-background: #1f2937; /* gray-800 */
+   --menu-color: #f9fafb; /* gray-50 */
+   --menu-border-color: #4b5563; /* gray-600 */
+   --menu-arrow-color: #9ca3af; /* gray-400 */
+   --plyr-controls-background: rgba(31, 41, 55, 0.9); /* gray-800 with opacity */
+   --plyr-controls-border: 1px solid #4b5563; /* gray-600 */
+}
+
+/* Apply styles to Plyr elements */
+.plyr {
+   --plyr-color-main: var(--plyr-color-main, #3b82f6);
+   --plyr-video-controls-background: var(--plyr-controls-background);
+   --plyr-menu-color: var(--menu-color);
+   --plyr-menu-bg: var(--plyr-menu-background);
+   --plyr-menu-border-color: var(--menu-border-color);
+   --plyr-menu-arrow: var(--menu-arrow-color);
+
+   /* Add border radius to controls */
+   border-radius: 0.5rem;
+   overflow: hidden;
+}
+
+/* Style the progress bar */
+.plyr__progress__container {
+   padding: 0 1rem;
+}
+
+.plyr__progress__buffer {
+   border-radius: 2px;
+}
+
+/* Style the tooltip */
+.plyr__tooltip {
+   font-size: 0.875rem;
+   line-height: 1.25rem;
+   padding: 0.25rem 0.5rem;
+   border-radius: 0.25rem;
+}
+
+/* Style the controls */
+.plyr__controls {
+   gap: 0.5rem;
+   padding: 0.5rem;
+   border-top: var(--plyr-controls-border);
+}
+
+/* Style the control buttons */
+.plyr__control {
+   border-radius: 0.25rem;
+   transition: all 0.2s ease;
+}
+
+.plyr__control:hover {
+   background: var(--plyr-control-bg-hover);
+}
+
+/* Style the volume control */
+.plyr__volume {
+   min-width: 80px;
+}

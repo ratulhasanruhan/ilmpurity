@@ -1,0 +1,473 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Input Label and Placeholder texts
+    |--------------------------------------------------------------------------
+    */
+
+    // ==================================================
+    // 01. Authentication & User Info
+    // ==================================================
+    [
+        'name' => 'Authentication & User Info',
+        'slug' => 'authentication_user_info',
+        'properties' => [
+            'email' => 'Email',
+            'new_email' => 'New Email',
+            'your_email' => 'Your Email',
+            'remember_me' => 'Remember me',
+            'email_address' => 'Email address',
+            'current_email' => 'Current Email',
+            'password' => 'Password',
+            'current_password' => 'Current Password',
+            'new_password' => 'New Password',
+            'confirm_password' => 'Confirm password',
+            'confirm_new_password' => 'Confirm New Password',
+            'full_name' => 'Full Name',
+            'phone' => 'Phone',
+            'username' => 'Username',
+            'profile_url' => 'Profile URL',
+            'system_email' => 'System Email',
+            'account_email' => 'Account Email',
+            'contact_email' => 'Contact Email',
+            'from_address' => 'From Address',
+            'from_name' => 'From Name',
+        ]
+    ],
+
+    // ==================================================
+    // 02. General Content & Metadata
+    // ==================================================
+    [
+        'name' => 'General Content & Metadata',
+        'slug' => 'general_content_metadata',
+        'properties' => [
+            'url' => 'URL',
+            'name' => 'Name',
+            'title' => 'Title',
+            'status' => 'Status',
+            'icon' => 'Icon',
+            'description' => 'Description',
+            'sub_title' => 'Sub Title',
+            'thumbnail' => 'Thumbnail',
+            'banner' => 'Banner',
+            'background_image' => 'Background Image',
+            'background_color' => 'Background Color',
+            'list_items' => 'List Items',
+            'dropdown_items' => 'Dropdown Items',
+            'action_type' => 'Action Type',
+            'active' => 'Active',
+            'tags' => 'Tags',
+            'slug' => 'Slug',
+            'url_slug' => 'URL Slug',
+            'slogan' => 'Slogan',
+            'author' => 'Author',
+            'meta_title' => 'Meta Title',
+            'meta_keywords' => 'Meta Keywords',
+            'meta_description' => 'Meta Description',
+            'og_title' => 'OG Title',
+            'og_description' => 'OG Description',
+        ]
+    ],
+
+    // ==================================================
+    // 03. Courses & Lessons
+    // ==================================================
+    [
+        'name' => 'Courses & Lessons',
+        'slug' => 'courses_lessons',
+        'properties' => [
+            'student_name' => 'Student Name',
+            'course_name' => 'Course Name',
+            'completion_date' => 'Completion Date',
+            'certificate_size' => 'Certificate Size',
+            'short_description' => 'Short Description',
+            'download_format' => 'Download Format',
+            'preview_video' => 'Preview Video',
+            'preview_video_type' => 'Preview Video Type',
+            'video_url' => 'Video URL',
+            'video_url_provider' => 'Video URL Provider',
+            'select' => 'Select',
+            'select_provider' => 'Select Provider',
+            'select_video' => 'Select video',
+            'select_document' => 'Select document',
+            'select_image' => 'Select image',
+            'embed_source' => 'Embed source',
+            'duration' => 'Duration',
+            'lesson_type' => 'Lesson type',
+            'requirement' => 'Requirement',
+            'class_topic' => 'Class Topic',
+            'start_date_time' => 'Start Date & Time',
+            'summary' => 'Summary',
+            'class_notes' => 'Class Notes (Optional)',
+            'enable_drip_content' => 'Enable drip content',
+            'course_level' => 'Course level',
+            'course_instructor' => 'Course Instructor',
+            'made_in' => 'Made in',
+            'pricing_type' => 'Pricing type',
+            'price' => 'Price',
+            'expiry_period_type' => 'Expiry period type',
+            'expiry_date' => 'Expiry date',
+            'course_language' => 'Course Language',
+            'course_discount' => 'Course Discount',
+            'enrollment_type' => 'Enrollment Type',
+        ]
+    ],
+    // ==================================================
+    // 04. Exams, Questions & Feedback
+    // ==================================================
+    [
+        'name' => 'Exams, Questions & Feedback',
+        'slug' => 'exams_questions_feedback',
+        'properties' => [
+            'question_title' => 'Question Title',
+            'title_80_character' => 'Title (80 Character)',
+            'keywords' => 'Keywords',
+            'keywords_80_character' => 'Keywords (80 Character)',
+            'subtitle_80_character' => 'Subtitle (80 Character)',
+            'question' => 'Question',
+            'answer' => 'Answer',
+            'outcome' => 'Outcome',
+            'your_text' => 'Enter your text',
+            'question_type' => 'Question Type',
+            'options' => 'Options',
+            'hours' => 'Hours',
+            'minutes' => 'Minutes',
+            'seconds' => 'Seconds',
+            'total_mark' => 'Total Mark',
+            'pass_mark' => 'Pass Mark',
+            'retake_attempts' => 'Retake Attempts',
+            'section_title' => 'Section Title',
+            'feedback' => 'Feedback',
+            'your_review' => 'Your Review',
+            'rating' => 'Rating',
+        ]
+    ],
+    // ==================================================
+    // 05. Jobs & Resume
+    // ==================================================
+    [
+        'name' => 'Jobs & Resume',
+        'slug' => 'jobs_resume',
+        'properties' => [
+            'designation' => 'Designation',
+            'resume' => 'Resume',
+            'skills' => 'Skills',
+            'skills_required' => 'Skills Required',
+            'biography' => 'Biography',
+            'job_title' => 'Job Title',
+            'job_description' => 'Job Description',
+            'job_type' => 'Job Type',
+            'work_type' => 'Work Type',
+            'experience_level' => 'Experience Level',
+            'positions_available' => 'Positions Available',
+            'location' => 'Location',
+            'application_deadline' => 'Application Deadline',
+            'salary_is_negotiable' => 'Salary is Negotiable',
+            'minimum_salary' => 'Minimum Salary',
+            'maximum_salary' => 'Maximum Salary',
+            'currency' => 'Currency',
+        ]
+    ],
+    // ==================================================
+    // 06. Payments, APIs & Keys
+    // ==================================================
+    [
+        'name' => 'Payments, APIs & Keys',
+        'slug' => 'payments_apis_keys',
+        'properties' => [
+            'subject' => 'Subject',
+            'send_to' => 'Send To',
+            'test_api_key' => 'Test API Key',
+            'live_api_key' => 'Live API Key',
+            'public_test_key' => 'Public Test Key',
+            'secret_test_key' => 'Secret Test Key',
+            'public_live_key' => 'Public Live Key',
+            'secret_live_key' => 'Secret Live Key',
+            'webhook_secret' => 'Webhook Secret',
+            'sandbox_client_id' => 'Sandbox Client ID',
+            'sandbox_secret_key' => 'Sandbox Secret Key',
+            'production_client_id' => 'Production Client ID',
+            'production_secret_key' => 'Production Secret Key',
+            'test_public_key' => 'Test Public Key',
+            'test_secret_key' => 'Test Secret Key',
+            'live_public_key' => 'Live Public Key',
+            'live_secret_key' => 'Live Secret Key',
+            'client_id' => 'Client ID',
+            'secret_key' => 'Secret Key',
+            'amount' => 'Amount',
+            'account_id' => 'Account ID',
+            'client_secret' => 'Client Secret',
+            'meeting_sdk_client_id' => 'Meeting SDK Client ID',
+            'meeting_sdk_client_secret' => 'Meeting SDK Client Secret',
+            'do_you_want_use_web_sdk' => 'Do you want to use Web SDK for your live class?',
+            'mail_driver' => 'Mail Driver',
+            'host' => 'Host',
+            'port' => 'Port',
+            'encryption' => 'Encryption',
+            'storage_driver' => 'Storage Driver',
+            'access_key_id' => 'Access Key ID',
+            'secret_access_key' => 'Secret Access Key',
+            'default_region' => 'Default Region',
+            'bucket_name' => 'Bucket Name',
+            'api_key' => 'API Key',
+            'api_secret' => 'API Secret',
+            'store_id' => 'Store ID',
+            'store_password' => 'Store Password',
+        ]
+    ],
+    // ==================================================
+    // 07. Integrations & Configurations
+    // ==================================================
+    [
+        'name' => 'Integrations & Configurations',
+        'slug' => 'integrations_configurations',
+        'properties' => [
+            'page_contents' => 'Page Contents',
+            'google_client_id' => 'Google Client ID',
+            'google_client_secret' => 'Google Client Secret',
+            'google_redirect_uri' => 'Google Redirect URI',
+            'merchant_id_public_key' => 'Merchant ID/Public Key',
+            'merchant_key_secret_key' => 'Merchant Key/Secret Key',
+            'website' => 'Website',
+            'github' => 'GitHub',
+            'twitter' => 'Twitter',
+            'linkedin' => 'LinkedIn',
+            'facebook' => 'Facebook',
+            'website_name' => 'Website Name',
+            'website_title' => 'Website Title',
+            'logo_dark' => 'Logo Dark',
+            'logo_light' => 'Logo Light',
+            'favicon' => 'Favicon',
+            'course_selling_currency' => 'Course Selling Currency',
+            'course_selling_tax' => 'Course Selling Tax (%)',
+            'instructor_revenue' => 'Instructor Revenue (%)',
+            'category' => 'Category',
+            'category_icon' => 'Category Icon',
+            'category_status' => 'Category Status',
+            'coupon' => 'Coupon',
+            'select_zip_file' => 'Select File (.zip only)',
+            'blog_banner' => 'Blog Banner',
+            'blog_thumbnail' => 'Blog Thumbnail',
+            'select_option' => 'Select an option',
+            'mail_host' => 'Mail Host',
+            'mail_port' => 'Mail Port',
+            'mail_encryption' => 'Mail Encryption',
+            'mail_username' => 'Mail Username',
+            'mail_password' => 'Mail Password',
+            'mail_from_address' => 'Mail From Address',
+            'mail_from_name' => 'Mail From Name',
+            'aws_access_key_id' => 'AWS Access Key ID',
+            'aws_default_region' => 'AWS Default Region',
+        ]
+    ],
+    // ==================================================
+    // 08. Authentication & User Info Placeholder
+    // ==================================================
+    [
+        'name' => 'Authentication & User Info Placeholder',
+        'slug' => 'authentication_user_info_placeholder',
+        'properties' => [
+            'email_placeholder' => 'email@example.com',
+            'password_placeholder' => 'Enter password',
+            'confirm_password_placeholder' => 'Confirm password',
+            'current_email_placeholder' => 'Enter your current email',
+            'new_email_placeholder' => 'Enter your new email',
+            'current_password_placeholder' => 'Enter your current password',
+            'new_password_placeholder' => 'Enter your new password',
+            'rewrite_password_placeholder' => 'Rewrite your new password',
+            'full_name_placeholder' => 'Enter your full name',
+            'your_name_placeholder' => 'Enter your name',
+            'username_placeholder' => 'Enter username',
+            'phone_number_placeholder' => 'Enter Phone Number',
+            'contact_email_placeholder' => 'hr@company.com',
+            'system_type_placeholder' => 'Select System Type',
+        ]
+    ],
+    // ==================================================
+    // 09. General Content & Metadata Placeholder
+    // ==================================================
+    [
+        'name' => 'General Content & Metadata Placeholder',
+        'slug' => 'general_content_metadata_placeholder',
+        'properties' => [
+            'name_placeholder' => 'Enter your name',
+            'title_placeholder' => 'Enter title',
+            'slug_placeholder' => 'Enter unique slug',
+            'url_placeholder' => 'Enter URL (e.g., /courses, https://example.com)',
+            'description_placeholder' => 'Enter description',
+            'icon_placeholder' => 'Pick your icon',
+            'status_placeholder' => 'Select status',
+            'action_type_placeholder' => 'Select action type',
+            'image_url_placeholder' => 'Image URL or path',
+            'section_title_placeholder' => 'Enter your section title',
+            'content_here_placeholder' => 'Type your content here...',
+            'caption_placeholder' => 'Type caption for image (optional)',
+            'meta_title_placeholder' => 'Enter Meta Title',
+            'meta_keywords_placeholder' => 'Enter Meta Keywords',
+            'meta_description_placeholder' => 'Enter Meta Description',
+            'og_title_placeholder' => 'Enter OG Title',
+            'og_description_placeholder' => 'Enter OG Description',
+            'page_name_placeholder' => 'Enter Page Name',
+            'page_slug_placeholder' => 'Enter Page Slug',
+            'page_title_placeholder' => 'Enter Page Title',
+            'tags_placeholder' => 'Enter tags...',
+        ]
+    ],
+    // ==================================================
+    // 10. Courses & Lessons Placeholder
+    // ==================================================
+    [
+        'name' => 'Courses & Lessons Placeholder',
+        'slug' => 'courses_lessons_placeholder',
+        'properties' => [
+            'course_name_placeholder' => 'Enter the course name',
+            'certificate_size_placeholder' => 'Select certificate size',
+            'course_title_placeholder' => 'Enter Course Title',
+            'short_description_placeholder' => 'Enter Short Description',
+            'category_placeholder' => 'Select a category',
+            'course_level_placeholder' => 'Select your course level',
+            'course_language_placeholder' => 'Select your course language',
+            'course_price_placeholder' => 'Enter your course price ($0)',
+            'discount_price_placeholder' => 'Enter your discount price ($0)',
+            'video_url_placeholder' => 'Enter your video url',
+            'approval_status_placeholder' => 'Select the approval status',
+            'lesson_title_placeholder' => 'Lesson title',
+            'provider_placeholder' => 'Select a provider',
+            'type_video_url_placeholder' => 'Type your video url',
+            'embed_source_placeholder' => 'Enter the embed source url',
+            'duration_placeholder' => '00:00:00',
+            'class_topic_placeholder' => 'Enter class topic',
+            'quiz_title_placeholder' => 'Enter quiz title',
+            'instructor_placeholder' => 'Select the course instructor',
+        ]
+    ],
+    // ==================================================
+    // 11. Exams, Questions & Feedback Placeholder
+    // ==================================================
+    [
+        'name' => 'Exams, Questions & Feedback Placeholder',
+        'slug' => 'exams_questions_feedback',
+        'properties' => [
+            'question_placeholder' => 'Question',
+            'answer_placeholder' => 'Enter the answer',
+            'outcome_placeholder' => 'Outcome',
+            'question_type_placeholder' => 'Select question type',
+            'question_options_placeholder' => 'Enter the question options',
+            'answer_options_placeholder' => 'Enter the answer options',
+            'hours_placeholder' => '00 hours',
+            'minutes_placeholder' => '00 minutes',
+            'seconds_placeholder' => '00 seconds',
+            'experience_placeholder' => 'Share your experience with this course...',
+            'your_subject_placeholder' => 'Enter your subject',
+        ]
+    ],
+    // ==================================================
+    // 12. Jobs & Resume Placeholder
+    // ==================================================
+    [
+        'name' => 'Jobs & Resume Placeholder',
+        'slug' => 'jobs_resume_placeholder',
+        'properties' => [
+            'biography_placeholder' => 'Write about yourself',
+            'designation_placeholder' => 'Enter your designation',
+            'skills_tag_placeholder' => 'Enter the skills as a tag',
+            'about_yourself_placeholder' => 'Write about yourself',
+            'job_title_placeholder' => 'e.g., Senior React Developer',
+            'url_slug_placeholder' => 'senior-react-developer',
+            'job_description_placeholder' => 'Provide a detailed description of the role, expectations, and what makes this opportunity exciting...',
+            'location_placeholder' => 'e.g., Dhaka, Bangladesh',
+            'currency_placeholder' => 'Select your currency',
+            'minimum_salary_placeholder' => 'Enter minimum salary',
+            'maximum_salary_placeholder' => 'Enter maximum salary',
+        ]
+    ],
+    // ==================================================
+    // 13. Payments, APIs & Keys Placeholder
+    // ==================================================
+    [
+        'name' => 'Payments, APIs & Keys Placeholder',
+        'slug' => 'payments_apis_keys_placeholder',
+        'properties' => [
+            'api_key_placeholder' => 'Enter api key',
+            'api_secret_placeholder' => 'Enter api secret',
+            'test_api_key_placeholder' => 'Enter test api key',
+            'live_api_key_placeholder' => 'Enter live api key',
+            'mollie_test_api_key_placeholder' => 'Enter Mollie test api key',
+            'mollie_live_api_key_placeholder' => 'Enter Mollie live api key',
+            'sandbox_client_id_placeholder' => 'Enter sandbox client ID',
+            'production_client_id_placeholder' => 'Enter production client ID',
+            'sandbox_secret_key_placeholder' => 'Enter sandbox secret key',
+            'production_secret_key_placeholder' => 'Enter production secret key',
+            'test_public_key_placeholder' => 'Enter test public key',
+            'test_secret_key_placeholder' => 'Enter test secret key',
+            'live_public_key_placeholder' => 'Enter live public key',
+            'live_secret_key_placeholder' => 'Enter live secret key',
+            'webhook_secret_placeholder' => 'Enter webhook secret',
+            'your_amount_placeholder' => 'Enter your amount',
+            'paytm_merchant_id_placeholder' => 'Enter Paytm merchant ID',
+            'paytm_merchant_key_placeholder' => 'Enter Paytm merchant key',
+            'razorpay_public_key_placeholder' => 'Enter Razorpay public key',
+            'razorpay_secret_key_placeholder' => 'Enter Razorpay secret key',
+            'sslcommerz_public_key_placeholder' => 'Enter SSLCommerz public key',
+            'sslcommerz_secret_key_placeholder' => 'Enter SSLCommerz secret key',
+            'coupon_placeholder' => 'Enter coupon',
+        ]
+    ],
+    // ==================================================
+    // 14. Integrations & Configurations Placeholder
+    // ==================================================
+    [
+        'name' => 'Integrations & Configurations Placeholder',
+        'slug' => 'integrations_configurations_placeholder',
+        'properties' => [
+            'zoom_account_email_placeholder' => 'Enter your Zoom account email',
+            'zoom_account_id_placeholder' => 'Enter your Zoom account ID',
+            'zoom_client_id_placeholder' => 'Enter your Zoom client ID',
+            'zoom_client_secret_placeholder' => 'Enter your Zoom client secret',
+            'meeting_sdk_client_id_placeholder' => 'Enter your Meeting SDK client ID',
+            'meeting_sdk_client_secret_placeholder' => 'Enter your Meeting SDK client secret',
+            'mail_driver_placeholder' => 'Select Mail Driver',
+            'smtp_example_placeholder' => 'smtp.example.com',
+            'port_587_placeholder' => '587',
+            'encryption_placeholder' => 'Select Encryption',
+            'noreply_example_placeholder' => 'noreply@example.com',
+            'your_company_name_placeholder' => 'Your Company Name',
+            'storage_driver_placeholder' => 'Select Storage Driver',
+            'access_key_id_placeholder' => 'Enter Access Key ID',
+            'secret_access_key_placeholder' => 'Enter Secret Access Key',
+            'default_region_placeholder' => 'Enter Default Region',
+            'bucket_name_placeholder' => 'Enter Bucket Name',
+            'google_client_id_placeholder' => 'Enter your google client id',
+            'google_client_secret_placeholder' => 'Enter your google client secret',
+            'google_redirect_url_placeholder' => 'Enter your google redirect url',
+            'https_placeholder' => 'https://example.com',
+            'website_name_placeholder' => 'Enter Website Name',
+            'website_title_placeholder' => 'Enter Website Title',
+            'keywords_placeholder' => 'Enter Keywords',
+            'website_description_placeholder' => 'Enter Website Description',
+            'author_name_placeholder' => 'Enter Author Name',
+            'website_slogan_placeholder' => 'Enter Website Slogan',
+            'system_email_placeholder' => 'Enter System Email',
+            'select_logo_placeholder' => 'Select Logo',
+            'select_favicon_placeholder' => 'Select Favicon',
+            'select_banner_placeholder' => 'Select Banner',
+            'select_user_placeholder' => 'Select a user',
+            'select_course_placeholder' => 'Select a course',
+            'selling_currency_placeholder' => 'Select Selling Currency',
+            'selling_tax_percentage_placeholder' => 'Enter Selling Tax Percentage',
+            'revenue_percentage_placeholder' => 'Enter Instructor Revenue Percentage',
+            'mail_host_placeholder' => 'smtp.example.com',
+            'mail_port_placeholder' => '587',
+            'mail_username_placeholder' => 'your-email@example.com',
+            'mail_password_placeholder' => 'Enter your mail password',
+            'mail_from_address_placeholder' => 'noreply@example.com',
+            'mail_from_name_placeholder' => 'Your Application Name',
+            'aws_access_key_id_placeholder' => 'Enter AWS Access Key ID',
+            'aws_default_region_placeholder' => 'us-east-1',
+        ]
+    ],
+];

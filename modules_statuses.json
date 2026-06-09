@@ -1,0 +1,10 @@
+{
+    "GoogleAuth": true,
+    "Installer": true,
+    "Updater": true,
+    "PaymentGateways": true,
+    "Blog": true,
+    "Language": true,
+    "Certificate": true,
+    "Exam": true
+}
