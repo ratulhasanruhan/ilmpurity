@@ -1,10 +1,10 @@
-# Mentor LMS - Learning Management System
+# Ilmpurity - Learning Management System
 
-Mentor LMS is a comprehensive Learning Management System built with Laravel 12 and React, designed to provide a seamless online education experience for students, instructors, and administrators.
+Ilmpurity is a comprehensive Learning Management System built with Laravel 12 and React, developed by Appibrium, designed to provide a seamless online education experience for students, instructors, and administrators.
 
 ## Overview
 
-Mentor LMS offers a robust platform for creating, managing, and selling online courses with features like curriculum building, payment processing, student enrollment management, live classes, job postings, and advanced analytics. The system supports multiple user roles, course formats, payment gateways, and includes modular architecture for easy maintenance and updates.
+Ilmpurity offers a robust platform for creating, managing, and selling online courses with features like curriculum building, payment processing, student enrollment management, live classes, job postings, and advanced analytics. The system supports multiple user roles, course formats, payment gateways, and includes modular architecture for easy maintenance and updates.
 
 ## Updated Version 3.0.0 - 23 November 2025
 
