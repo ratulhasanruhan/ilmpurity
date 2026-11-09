@@ -21,7 +21,7 @@ class ExamQuestionRequest extends FormRequest
     {
         $rules = [
             'exam_id' => 'required|exists:exams,id',
-            'question_type' => 'required|string|in:multiple_choice,multiple_select,matching,fill_blank,ordering,short_answer,listening',
+            'question_type' => 'required|string|in:multiple_choice,multiple_select,matching,fill_blank,ordering,short_answer,file_upload,listening',
             'title' => 'required|string',
             'description' => 'nullable|string',
             'marks' => 'required|numeric|min:0.5',

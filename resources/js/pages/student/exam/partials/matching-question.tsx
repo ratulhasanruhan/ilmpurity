@@ -56,7 +56,14 @@ const MatchingQuestion = ({ question, answer, onAnswerChange }: Props) => {
    };
 
    const leftItems = useMemo(() => matches.map((pair: any) => ({ id: pair.id, text: pair.question })), [matches]);
-   const rightItems = useMemo(() => matches.map((pair: any) => ({ id: pair.id, text: pair.answer })), [matches]);
+   const rightItems = useMemo(() => {
+      const choices = question.options?.choices;
+      if (Array.isArray(choices) && choices.length > 0) {
+         return choices.map((choice: string, index: number) => ({ id: index, text: choice }));
+      }
+
+      return matches.map((pair: any) => ({ id: pair.id, text: pair.answer }));
+   }, [matches, question.options?.choices]);
 
    const shuffledRightItems = useMemo(() => [...rightItems].sort(() => Math.random() - 0.5), [rightItems]);
 

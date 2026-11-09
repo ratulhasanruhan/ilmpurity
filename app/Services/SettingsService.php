@@ -107,6 +107,15 @@ class SettingsService extends MediaService
         }, 5);
     }
 
+    public function whatsappUpdate(array $data, string $id)
+    {
+        return DB::transaction(function () use ($data, $id) {
+            $data['active'] = (bool) ($data['active'] ?? false);
+
+            return Setting::find($id)->update(['fields' => $data]);
+        }, 5);
+    }
+
     public function zoomConfigUpdate(array $data, string $id)
     {
         return DB::transaction(function () use ($data, $id) {

@@ -6,8 +6,12 @@ interface AttemptAnswerWithQuestion extends ExamAttemptAnswer {
 
 const QuestionAnswerResult = ({ question, answer }: { question: ExamQuestion; answer: AttemptAnswerWithQuestion }) => {
    const answerData = answer.answer_data;
+   const hasAnswer =
+      answerData &&
+      !(Array.isArray(answerData) && answerData.length === 0) &&
+      !(typeof answerData === 'object' && !Array.isArray(answerData) && Object.keys(answerData).length === 0);
 
-   if (!answerData) {
+   if (!hasAnswer) {
       return <p className="text-gray-500 italic">No answer provided</p>;
    }
 
@@ -243,6 +247,30 @@ const QuestionAnswerResult = ({ question, answer }: { question: ExamQuestion; an
                      );
                   })}
                </div>
+            </div>
+         );
+      }
+
+      case 'file_upload': {
+         const fileName = (answerData as any).file_name || 'Uploaded answer';
+         const mime = (answerData as any).mime || '';
+         const fileUrl = answer.id ? route('exam-attempts.answer-file', answer.id) : null;
+
+         if (!fileUrl || !(answerData as any).file_path) {
+            return <p className="text-gray-500 italic">No file uploaded</p>;
+         }
+
+         return (
+            <div className="space-y-3">
+               <p className="font-semibold text-gray-700">Submitted file</p>
+               {mime.startsWith('image/') ? (
+                  <img src={fileUrl} alt={fileName} className="max-h-96 rounded-md border" />
+               ) : (
+                  <iframe src={fileUrl} title={fileName} className="h-96 w-full rounded-md border" />
+               )}
+               <a href={fileUrl} target="_blank" rel="noreferrer" className="text-sm font-medium text-blue-600">
+                  Open {fileName}
+               </a>
             </div>
          );
       }

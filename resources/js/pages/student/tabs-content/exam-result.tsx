@@ -54,7 +54,8 @@ const ExamResult = () => {
    }
 
    const isPassed = attempt.is_passed;
-   const percentage = attempt.percentage || 0;
+   const awaitingReview = attempt.status === 'submitted';
+   const percentage = attempt.percentage || (attempt.total_marks ? (Number(attempt.obtained_marks) / Number(attempt.total_marks)) * 100 : 0);
    const correctAnswers = answers.filter((a) => a.is_correct).length;
    const incorrectAnswers = answers.filter((a) => a.is_correct === false).length;
    const pendingAnswers = answers.filter((a) => a.is_correct === null).length;
@@ -65,7 +66,12 @@ const ExamResult = () => {
       <div className="space-y-6">
          {/* Header */}
          <div className="flex items-center justify-between">
-            <h6 className="text-xl font-semibold">Attempt {attempt.attempt_number} Result</h6>
+            <div>
+               <h6 className="text-xl font-semibold">Attempt {attempt.attempt_number} Result</h6>
+               {awaitingReview && (
+                  <p className="text-sm text-amber-700">Objective questions are graded. Creative answers are waiting for a teacher.</p>
+               )}
+            </div>
 
             <Button asChild variant="outline">
                <Link
@@ -81,11 +87,15 @@ const ExamResult = () => {
          </div>
 
          {/* Score Card */}
-         <Card className={`border-2 ${isPassed ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50'}`}>
+         <Card
+            className={`border-2 ${awaitingReview ? 'border-amber-500 bg-amber-50' : isPassed ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50'}`}
+         >
             <CardContent className="p-6">
                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
                   <div className="text-center">
-                     <h6 className={`mb-2 text-4xl font-bold ${isPassed ? 'text-green-600' : 'text-red-600'}`}>{percentage.toFixed(1)}%</h6>
+                     <h6 className={`mb-2 text-4xl font-bold ${awaitingReview ? 'text-amber-600' : isPassed ? 'text-green-600' : 'text-red-600'}`}>
+                        {percentage.toFixed(1)}%
+                     </h6>
                      <p className="text-sm font-semibold tracking-wide text-gray-600 uppercase">Score</p>
                   </div>
                   <div className="text-center">
@@ -95,8 +105,8 @@ const ExamResult = () => {
                      <p className="text-sm font-semibold tracking-wide text-gray-600 uppercase">Marks</p>
                   </div>
                   <div className="text-center">
-                     <Badge variant={isPassed ? 'default' : 'destructive'} className="mb-2 px-6 py-1 text-lg">
-                        {isPassed ? 'PASSED' : 'FAILED'}
+                     <Badge variant={awaitingReview ? 'secondary' : isPassed ? 'default' : 'destructive'} className="mb-2 px-6 py-1 text-lg">
+                        {awaitingReview ? 'PENDING REVIEW' : isPassed ? 'PASSED' : 'FAILED'}
                      </Badge>
                      <p className="text-sm text-gray-600">
                         Pass mark: <span className="font-semibold">{attempt.exam.pass_mark}</span>
@@ -104,7 +114,10 @@ const ExamResult = () => {
                   </div>
                   <div className="text-center">
                      <div className="mb-2 text-3xl font-bold">
-                        {Math.floor((new Date(attempt.end_time).getTime() - new Date(attempt.start_time).getTime()) / 60000)} min
+                        {attempt.end_time
+                           ? Math.max(0, Math.floor((new Date(attempt.end_time).getTime() - new Date(attempt.start_time).getTime()) / 60000))
+                           : 0}{' '}
+                        min
                      </div>
                      <p className="text-sm font-semibold tracking-wide text-gray-600 uppercase">Time Taken</p>
                   </div>

@@ -1,6 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { CheckCircle, CheckSquare, FileText, Headphones, Link2, ListOrdered, Type } from 'lucide-react';
+import { CheckCircle, CheckSquare, FileText, FileUp, Headphones, Link2, ListOrdered, Type } from 'lucide-react';
 
 interface Props {
    type: ExamQuestionType;
@@ -44,6 +44,11 @@ const questionTypeConfig: Record<
       label: 'Short Answer',
       icon: FileText,
       color: 'bg-red-100 text-red-800 hover:bg-red-100',
+   },
+   file_upload: {
+      label: 'Creative (CQ)',
+      icon: FileUp,
+      color: 'bg-teal-100 text-teal-800 hover:bg-teal-100',
    },
    listening: {
       label: 'Listening',

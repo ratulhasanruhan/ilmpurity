@@ -92,6 +92,10 @@ Route::prefix('dashboard')->group(function () {
         Route::get('settings/smtp', 'smtp')->name('settings.smtp');
         Route::post('settings/smtp/{id}', 'smtp_update')->name('settings.smtp.update');
 
+        Route::get('settings/whatsapp', 'whatsapp')->name('settings.whatsapp');
+        Route::post('settings/whatsapp/{id}', 'whatsapp_update')->name('settings.whatsapp.update');
+        Route::post('settings/whatsapp-test', 'whatsapp_test')->name('settings.whatsapp.test');
+
         Route::get('settings/maintenance', 'maintenance')->name('settings.maintenance');
 
         Route::get('settings/live-class', 'live_class')->name('settings.live-class');

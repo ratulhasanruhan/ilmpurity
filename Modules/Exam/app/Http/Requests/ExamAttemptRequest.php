@@ -21,12 +21,11 @@ class ExamAttemptRequest extends FormRequest
       }
 
       if ($this->isMethod('post') && $this->routeIs('*.submit')) {
-         // Submitting exam answers
          return [
-            'exam_attempt_id' => 'required|exists:exam_attempts,id',
-            'answers' => 'required|array',
+            'exam_attempt_id' => 'nullable|exists:exam_attempts,id',
+            'answers' => 'nullable|array',
             'answers.*.exam_question_id' => 'required|exists:exam_questions,id',
-            'answers.*.answer_data' => 'required',
+            'answers.*.answer_data' => 'nullable',
          ];
       }
 

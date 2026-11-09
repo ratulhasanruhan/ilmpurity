@@ -23,6 +23,7 @@ Route::get('student/{tab}', [StudentController::class, 'index'])->name('student.
 Route::get('student/courses/{id}/{tab}', [StudentController::class, 'show_course'])->name('student.course.show');
 Route::get('student/exams/{id}/{tab}', [StudentController::class, 'show_exam'])->name('student.exam.show');
 Route::post('student/profile', [StudentController::class, 'update_profile'])->name('student.profile.update');
+Route::post('student/whatsapp', [StudentController::class, 'update_whatsapp'])->name('student.whatsapp.update');
 
 Route::controller(InstructorController::class)->middleware(['smtpConfig', 'checkSmtp', 'checkCourseCreation'])->group(function () {
     Route::post('become-instructor', 'store')->name('become-instructor.store');

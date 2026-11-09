@@ -212,6 +212,13 @@ const Questions = () => {
                      )}
 
                      {/* Show short answer sample */}
+                     {question.question_type === 'file_upload' && (
+                        <div className="mt-3">
+                           <p className="mb-1 text-xs font-medium text-gray-500">Student submission:</p>
+                           <p className="text-sm text-gray-700">Image or PDF upload. Graded manually.</p>
+                        </div>
+                     )}
+
                      {question.question_type === 'short_answer' && question.options?.sample_answer && (
                         <div className="mt-3">
                            <p className="mb-1 text-xs font-medium text-gray-500">Guidelines:</p>

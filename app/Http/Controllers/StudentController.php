@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateStudentProfileRequest;
+use App\Http\Requests\UpdateWhatsappPreferenceRequest;
+use App\Services\WhatsAppService;
 use App\Models\Course\WatchHistory;
 use App\Services\Course\CourseEnrollmentService;
 use App\Services\Course\CoursePlayerService;
@@ -101,5 +103,12 @@ class StudentController extends Controller
         $this->studentService->updateProfile($request->validated(), Auth::user()->id);
 
         return redirect()->back()->with('success', 'Profile updated successfully');
+    }
+
+    public function update_whatsapp(UpdateWhatsappPreferenceRequest $request, WhatsAppService $whatsApp)
+    {
+        $whatsApp->savePreference($request->user(), $request->validated());
+
+        return back()->with('success', 'WhatsApp reminder time saved.');
     }
 }

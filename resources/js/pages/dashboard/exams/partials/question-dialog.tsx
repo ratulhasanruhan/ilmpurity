@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { onHandleChange } from '@/lib/inertia';
 import { useForm } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
+import FileUploadForm from './question-types/file-upload-form';
 import FillBlankForm from './question-types/fill-blank-form';
 import ListeningForm from './question-types/listening-form';
 import MatchingForm from './question-types/matching-form';
@@ -56,6 +57,7 @@ const questionTypes: { value: ExamQuestionType; label: string }[] = [
    { value: 'fill_blank', label: 'Fill in the Blank' },
    { value: 'ordering', label: 'Ordering' },
    { value: 'short_answer', label: 'Short Answer' },
+   { value: 'file_upload', label: 'Creative / File Upload (CQ)' },
    { value: 'listening', label: 'Listening' },
 ];
 
@@ -162,6 +164,8 @@ const QuestionDialog = ({ exam, question, handler }: Props) => {
             return <OrderingForm {...props} />;
          case 'short_answer':
             return <ShortAnswerForm {...props} />;
+         case 'file_upload':
+            return <FileUploadForm {...props} />;
          case 'listening':
             return (
                <ListeningForm

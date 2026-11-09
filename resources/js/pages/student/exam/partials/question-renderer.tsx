@@ -7,16 +7,18 @@ import MatchingQuestion from './matching-question';
 import McqQuestion from './mcq-question';
 import MultipleSelectQuestion from './multiple-select-question';
 import OrderingQuestion from './ordering-question';
+import FileUploadQuestion from './file-upload-question';
 import ShortAnswerQuestion from './short-answer-question';
 
 interface Props {
+   attemptId: number | string;
    question: ExamQuestion;
    questionNumber: number;
    answer: any;
    onAnswerChange: (answer: any) => void;
 }
 
-const QuestionRenderer = ({ question, questionNumber, answer, onAnswerChange }: Props) => {
+const QuestionRenderer = ({ attemptId, question, questionNumber, answer, onAnswerChange }: Props) => {
    const renderQuestionInput = () => {
       switch (question.question_type) {
          case 'multiple_choice':
@@ -31,6 +33,8 @@ const QuestionRenderer = ({ question, questionNumber, answer, onAnswerChange }: 
             return <OrderingQuestion question={question} answer={answer} onAnswerChange={onAnswerChange} />;
          case 'short_answer':
             return <ShortAnswerQuestion question={question} answer={answer} onAnswerChange={onAnswerChange} />;
+         case 'file_upload':
+            return <FileUploadQuestion attemptId={attemptId} question={question} answer={answer} onAnswerChange={onAnswerChange} />;
          case 'listening':
             return <ListeningQuestion question={question} answer={answer} onAnswerChange={onAnswerChange} />;
          default:

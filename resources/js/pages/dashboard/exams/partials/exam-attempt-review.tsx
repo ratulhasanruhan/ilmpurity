@@ -52,7 +52,7 @@ const ExamAttemptReview = ({ attempt }: { attempt: ExamAttempt }) => {
 
    const needsManualGrading = answers.some((answer) => {
       const question = safeQuestion(answer);
-      return question.question_type === 'listening' || question.question_type === 'short_answer';
+      return question.question_type === 'short_answer' || question.question_type === 'file_upload';
    });
 
    if (!attempt) {
@@ -131,7 +131,7 @@ const ExamAttemptReview = ({ attempt }: { attempt: ExamAttempt }) => {
                               </div>
 
                               {/* Manual Grading Section for listening and short_answer */}
-                              {(question.question_type === 'listening' || question.question_type === 'short_answer') && (
+                              {(question.question_type === 'short_answer' || question.question_type === 'file_upload') && (
                                  <div className="mt-4 rounded-lg border-t border-gray-200 bg-yellow-50 p-4 pt-4">
                                     <Label htmlFor={`grade-${questionId}`} className="text-sm font-semibold text-gray-700">
                                        Assign Marks (Max: {question.marks || 0})

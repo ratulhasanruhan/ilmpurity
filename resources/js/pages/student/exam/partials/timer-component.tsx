@@ -1,8 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { router } from '@inertiajs/react';
 import { AlertTriangle, Clock } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Props {
    endTime: string;
@@ -14,6 +13,12 @@ interface Props {
 const TimerComponent = ({ endTime, onTimeUp, attempt, questionIndex }: Props) => {
    const [timeLeft, setTimeLeft] = useState<number>(0);
    const [isWarning, setIsWarning] = useState(false);
+   const onTimeUpRef = useRef(onTimeUp);
+   const submittedRef = useRef(false);
+
+   useEffect(() => {
+      onTimeUpRef.current = onTimeUp;
+   }, [onTimeUp]);
 
    useEffect(() => {
       const calculateTimeLeft = () => {
@@ -40,19 +45,15 @@ const TimerComponent = ({ endTime, onTimeUp, attempt, questionIndex }: Props) =>
             setIsWarning(true);
          }
 
-         // Auto-submit when time is up
-         if (remaining === 0) {
+         if (remaining === 0 && !submittedRef.current) {
+            submittedRef.current = true;
             clearInterval(interval);
-            if (onTimeUp) {
-               onTimeUp();
-            } else {
-               router.post(route('exam-attempts.submit', attempt.id));
-            }
+            onTimeUpRef.current?.();
          }
       }, 1000);
 
       return () => clearInterval(interval);
-   }, [endTime, attempt.id, onTimeUp]);
+   }, [endTime]);
 
    const formatTime = (seconds: number) => {
       const hours = Math.floor(seconds / 3600);

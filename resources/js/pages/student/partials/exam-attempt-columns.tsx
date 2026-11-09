@@ -147,22 +147,17 @@ const ExamAttemptColumn = (examId: number | string, bestAttemptId?: number | str
 
             return (
                <div className="flex justify-end gap-2 py-1 pr-4">
-                  {attempt.status === 'completed' ? (
+                  {attempt.status === 'completed' || attempt.status === 'submitted' ? (
                      <Button asChild variant="secondary" className="h-8">
                         <Link href={route('student.exam.show', { id: examId, tab: 'attempts', attempt: attempt.id })}>Result</Link>
                      </Button>
-                  ) : (
-                     <Button disabled variant="secondary" className="h-8">
-                        Pending
+                  ) : null}
+
+                  {attempt.status === 'in_progress' && (
+                     <Button asChild variant="default" className="h-8">
+                        <Link href={route('exam-attempts.take', attempt.id)}>Continue</Link>
                      </Button>
                   )}
-
-                  {attempt.status === 'in_progress' ||
-                     (attempt.status === 'abandoned' && (
-                        <Button asChild variant="default" className="h-8">
-                           <Link href={route('exam-attempts.take', attempt.id)}>Continue</Link>
-                        </Button>
-                     ))}
                </div>
             );
          },

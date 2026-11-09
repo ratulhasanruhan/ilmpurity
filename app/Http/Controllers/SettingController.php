@@ -15,7 +15,9 @@ use Inertia\Inertia;
 use App\Services\SettingsService;
 use App\Http\Requests\UpdateSmtpSettingsRequest;
 use App\Http\Requests\UpdateStorageRequest;
+use App\Http\Requests\UpdateWhatsappSettingsRequest;
 use App\Http\Requests\UpdateZoomConfigRequest;
+use App\Services\WhatsAppService;
 use App\Models\Page;
 use App\Services\InstructorService;
 use App\Services\StudentService;
@@ -34,7 +36,8 @@ class SettingController extends Controller
     public function __construct(
         private StudentService $studentService,
         private SettingsService $settingsService,
-        private InstructorService $instructorService
+        private InstructorService $instructorService,
+        private WhatsAppService $whatsAppService
     ) {}
 
     /**
@@ -267,6 +270,50 @@ class SettingController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function whatsapp(Request $request)
+    {
+        $whatsapp = $this->settingsService->getSetting(['type' => 'whatsapp']);
+
+        if (!$whatsapp) {
+            $whatsapp = Setting::create([
+                'type' => 'whatsapp',
+                'sub_type' => null,
+                'title' => 'WhatsApp Settings',
+                'fields' => [
+                    'active' => false,
+                    'provider' => 'meta',
+                    'send_mode' => 'text',
+                    'phone_number_id' => '',
+                    'access_token' => '',
+                    'api_url' => '',
+                    'template_name' => '',
+                    'template_language' => 'en',
+                    'message_template' => 'Hello {name}, this is your scheduled reminder from {app}.',
+                ],
+            ]);
+        }
+
+        return Inertia::render('dashboard/settings/whatsapp', compact('whatsapp'));
+    }
+
+    public function whatsapp_update(UpdateWhatsappSettingsRequest $request, string $id)
+    {
+        $this->settingsService->whatsappUpdate($request->validated(), $id);
+
+        return back()->with('success', 'WhatsApp settings updated successfully.');
+    }
+
+    public function whatsapp_test(Request $request)
+    {
+        $request->validate([
+            'test_phone' => ['required', 'regex:/^\+?[0-9]{10,15}$/'],
+        ]);
+
+        $result = $this->whatsAppService->sendTest($request->string('test_phone'), $request->user());
+
+        return back()->with($result['ok'] ? 'success' : 'error', $result['message']);
+    }
+
     public function live_class(Request $request)
     {
         $liveClass = $this->settingsService->getSetting(['type' => 'live_class']);

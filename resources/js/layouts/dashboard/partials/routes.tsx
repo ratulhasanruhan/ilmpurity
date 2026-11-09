@@ -326,6 +326,12 @@ const dashboardRoutes: DashboardRoute[] = [
                   access: ['admin', 'collaborative', 'administrative'],
                },
                {
+                  name: 'WhatsApp',
+                  slug: routeLastSegment(route('settings.whatsapp')),
+                  path: route('settings.whatsapp'),
+                  access: ['admin', 'collaborative', 'administrative'],
+               },
+               {
                   name: 'Auth',
                   slug: routeLastSegment(route('settings.auth0')),
                   path: route('settings.auth0'),

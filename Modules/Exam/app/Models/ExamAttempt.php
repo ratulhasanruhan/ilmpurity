@@ -24,11 +24,15 @@ class ExamAttempt extends Model
       'incorrect_answers',
       'is_passed',
       'status',
+      'expires_at',
    ];
+
+   protected $appends = ['percentage'];
 
    protected $casts = [
       'start_time' => 'datetime',
       'end_time' => 'datetime',
+      'expires_at' => 'datetime',
       'total_marks' => 'decimal:2',
       'obtained_marks' => 'decimal:2',
       'correct_answers' => 'integer',
@@ -58,6 +62,23 @@ class ExamAttempt extends Model
          return 0;
       }
       return ($this->obtained_marks / $this->total_marks) * 100;
+   }
+
+   public function deadline(): \Illuminate\Support\Carbon
+   {
+      if ($this->expires_at) {
+         return $this->expires_at->copy();
+      }
+
+      $exam = $this->relationLoaded('exam') ? $this->exam : $this->exam()->first();
+      $minutes = $exam ? ((int) $exam->duration_hours * 60) + (int) $exam->duration_minutes : 0;
+      if ($minutes < 1) {
+         $minutes = 60;
+      }
+
+      $start = $this->start_time ?? $this->created_at ?? now();
+
+      return $start->copy()->addMinutes($minutes);
    }
 
    public function getDurationAttribute(): ?int

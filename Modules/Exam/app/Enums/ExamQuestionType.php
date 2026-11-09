@@ -10,6 +10,7 @@ enum ExamQuestionType: string
    case FILL_BLANK = 'fill_blank';
    case ORDERING = 'ordering';
    case SHORT_ANSWER = 'short_answer';
+   case FILE_UPLOAD = 'file_upload';
    case LISTENING = 'listening';
 
    public function getLabel(): string
@@ -21,6 +22,7 @@ enum ExamQuestionType: string
          self::FILL_BLANK => 'Fill in the Blank',
          self::ORDERING => 'Ordering',
          self::SHORT_ANSWER => 'Short Answer',
+         self::FILE_UPLOAD => 'Creative (File Upload)',
          self::LISTENING => 'Listening',
       };
    }
@@ -34,7 +36,7 @@ enum ExamQuestionType: string
          self::FILL_BLANK,
          self::ORDERING,
          self::LISTENING => true,
-         self::SHORT_ANSWER => false,
+         self::SHORT_ANSWER, self::FILE_UPLOAD => false,
       };
    }
 }

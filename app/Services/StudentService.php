@@ -79,6 +79,15 @@ class StudentService extends MediaService
             $props['examWishlists'] = $examWishlists;
             break;
 
+         case 'whatsapp':
+            $preference = \App\Models\WhatsappPreference::where('user_id', $user->id)->first();
+            if ($preference && $preference->preferred_time) {
+               $preference->preferred_time = substr((string) $preference->preferred_time, 0, 5);
+            }
+            $props['whatsappPreference'] = $preference;
+            $props['whatsappLastLog'] = \App\Models\WhatsappMessageLog::where('user_id', $user->id)->latest()->first();
+            break;
+
          default:
             break;
       }

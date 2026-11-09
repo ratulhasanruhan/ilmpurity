@@ -92,7 +92,7 @@ interface ExamOutcome extends TableCommon {
    sort: number;
 }
 
-type ExamQuestionType = 'multiple_choice' | 'multiple_select' | 'matching' | 'fill_blank' | 'ordering' | 'short_answer' | 'listening';
+type ExamQuestionType = 'multiple_choice' | 'multiple_select' | 'matching' | 'fill_blank' | 'ordering' | 'short_answer' | 'file_upload' | 'listening';
 
 interface ExamQuestionOption extends TableCommon {
    exam_question_id: number;
@@ -118,6 +118,7 @@ interface ExamQuestion extends TableCommon {
       audio_file?: File;
       audio_source?: 'url' | 'upload';
       instructions?: string;
+      choices?: string[];
    };
    question_options?: ExamQuestionOption[];
    media?: Media[];
@@ -140,6 +141,7 @@ interface ExamAttempt extends TableCommon {
    attempt_number: number;
    start_time: string;
    end_time: string;
+   expires_at?: string | null;
    duration_minutes?: number;
    total_marks: number;
    obtained_marks: number;
@@ -163,6 +165,11 @@ interface ExamAttemptAnswer extends TableCommon {
       answers?: string[];
       order?: number[];
       text?: string;
+      file_path?: string;
+      file_name?: string;
+      mime?: string;
+      id?: number;
+      uploaded?: boolean;
    };
    is_correct?: boolean;
    marks_obtained: number;

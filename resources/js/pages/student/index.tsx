@@ -7,6 +7,7 @@ import MyCourses from './tabs-content/my-courses';
 import MyExams from './tabs-content/my-exams';
 import MyProfile from './tabs-content/my-profile';
 import Settings from './tabs-content/settings';
+import WhatsappReminder from './tabs-content/whatsapp';
 import Wishlist from './tabs-content/wishlist';
 
 const Index = (props: StudentDashboardProps) => {
@@ -23,6 +24,8 @@ const Index = (props: StudentDashboardProps) => {
             return <Wishlist />;
          case 'profile':
             return <MyProfile />;
+         case 'whatsapp':
+            return <WhatsappReminder />;
          case 'settings':
             return <Settings />;
          case 'instructor':

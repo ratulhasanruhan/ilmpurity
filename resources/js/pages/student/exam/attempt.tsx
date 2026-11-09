@@ -13,7 +13,7 @@ import Footer from '@/layouts/footer';
 import Main from '@/layouts/main';
 import { Head, router } from '@inertiajs/react';
 import { AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AttemptNavbar from './partials/attempt-navbar';
 import QuestionNavigator from './partials/question-navigator';
 import QuestionRenderer from './partials/question-renderer';
@@ -29,28 +29,53 @@ const TakeExam = ({ attempt }: Props) => {
    const [markedQuestions, setMarkedQuestions] = useState<Set<number>>(new Set());
    const [showSubmitDialog, setShowSubmitDialog] = useState(false);
    const [isSubmitting, setIsSubmitting] = useState(false);
+   const answersRef = useRef<Record<number, any>>({});
+   const submittingRef = useRef(false);
 
    const durationSeconds = ((attempt.exam.duration_hours || 0) * 60 + (attempt.exam.duration_minutes || 0)) * 60;
    const attemptStart = attempt.start_time ? new Date(attempt.start_time).getTime() : Date.now();
-   const effectiveDuration = durationSeconds > 0 ? durationSeconds : 60 * 60; // default to 1 hour when not configured
-   const computedDeadline = attempt.end_time ? attempt.end_time : new Date(attemptStart + effectiveDuration * 1000).toISOString();
+   const effectiveDuration = durationSeconds > 0 ? durationSeconds : 60 * 60;
+   const computedDeadline = attempt.expires_at
+      ? attempt.expires_at
+      : new Date(attemptStart + effectiveDuration * 1000).toISOString();
 
    const questions = attempt.exam.questions || [];
    const currentQuestion = questions[currentQuestionIndex];
    const answeredQuestions = new Set(Object.keys(answers).map(Number));
 
-   // Load saved answers from localStorage
    useEffect(() => {
+      answersRef.current = answers;
+   }, [answers]);
+
+   // Restore answers saved on the server, then any newer local copy.
+   useEffect(() => {
+      const fromServer: Record<number, any> = {};
+      (attempt.attempt_answers || []).forEach((item) => {
+         fromServer[item.exam_question_id] = {
+            ...(item.answer_data || {}),
+            id: item.id,
+         };
+      });
+
       const savedAnswers = localStorage.getItem(`exam-attempt-${attempt.id}`);
       if (savedAnswers) {
          try {
             const parsed = JSON.parse(savedAnswers);
-            setAnswers(parsed.answers || {});
+            const merged = { ...fromServer, ...(parsed.answers || {}) };
+            Object.entries(fromServer).forEach(([id, value]) => {
+               if (value?.file_path) {
+                  merged[Number(id)] = value;
+               }
+            });
+            setAnswers(merged);
             setMarkedQuestions(new Set(parsed.marked || []));
+            return;
          } catch (error) {
             console.error('Failed to load saved answers:', error);
          }
       }
+
+      setAnswers(fromServer);
    }, [attempt.id]);
 
    // Auto-save answers to localStorage every 30 seconds
@@ -123,14 +148,18 @@ const TakeExam = ({ attempt }: Props) => {
       }
    };
 
-   const handleSubmit = async () => {
+   const handleSubmit = (answersToSubmit = answersRef.current) => {
+      if (submittingRef.current) return;
+      submittingRef.current = true;
       setIsSubmitting(true);
       saveToLocalStorage();
 
-      const formattedAnswers = Object.entries(answers).map(([questionId, value]) => ({
-         exam_question_id: Number(questionId),
-         answer_data: value,
-      }));
+      const formattedAnswers = Object.entries(answersToSubmit)
+         .filter(([, value]) => value)
+         .map(([questionId, value]) => ({
+            exam_question_id: Number(questionId),
+            answer_data: value,
+         }));
 
       router.post(
          route('exam-attempts.submit', attempt.id),
@@ -141,6 +170,7 @@ const TakeExam = ({ attempt }: Props) => {
          {
             onError: (errors) => {
                console.log(errors);
+               submittingRef.current = false;
             },
             onSuccess: () => {
                localStorage.removeItem(`exam-attempt-${attempt.id}`);
@@ -181,11 +211,17 @@ const TakeExam = ({ attempt }: Props) => {
                      {/* Main Content */}
                      <div className="space-y-4 lg:col-span-3">
                         {/* Timer */}
-                        <TimerComponent attempt={attempt} endTime={computedDeadline} questionIndex={currentQuestionIndex} />
+                        <TimerComponent
+                           attempt={attempt}
+                           endTime={computedDeadline}
+                           questionIndex={currentQuestionIndex}
+                           onTimeUp={() => handleSubmit(answersRef.current)}
+                        />
 
                         {/* Question */}
                         {currentQuestion && (
                            <QuestionRenderer
+                              attemptId={attempt.id}
                               question={currentQuestion}
                               questionNumber={currentQuestionIndex + 1}
                               answer={answers[currentQuestion.id as number]}

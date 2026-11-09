@@ -8,7 +8,7 @@ import useScreen from '@/hooks/use-screen';
 import LandingLayout from '@/layouts/landing-layout';
 import { SharedData } from '@/types/global';
 import { usePage } from '@inertiajs/react';
-import { FileQuestion, GraduationCap, Heart, ListFilter, Settings as SettingsIcon, UserCircle } from 'lucide-react';
+import { FileQuestion, GraduationCap, Heart, ListFilter, MessageCircle, Settings as SettingsIcon, UserCircle } from 'lucide-react';
 import { ReactNode, useMemo, useState } from 'react';
 import TabLists from './tab-lists';
 
@@ -44,6 +44,12 @@ const Layout = ({ children, tab }: { children: ReactNode; tab: string }) => {
             name: button.profile,
             slug: 'profile',
             Icon: UserCircle,
+         },
+         {
+            id: 'whatsapp',
+            name: 'WhatsApp',
+            slug: 'whatsapp',
+            Icon: MessageCircle,
          },
          {
             id: 'settings',
