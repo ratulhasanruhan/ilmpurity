@@ -60,7 +60,7 @@ class CourseController extends Controller
 
         // Generate meta tags for SEO and social sharing
         $system = app('system_settings');
-        $siteName = $system->fields['name'] ?? 'Appibrium';
+        $siteName = $system->fields['name'] ?? 'Ilmpurity';
         $siteUrl = request()->url();
 
         // Get course count with proper fallback
@@ -178,7 +178,7 @@ class CourseController extends Controller
         if ($course->exists()) {
             // Generate meta tags for SEO and social sharing
             $system = app('system_settings');
-            $siteName = $system->fields['name'] ?? 'Appibrium';
+            $siteName = $system->fields['name'] ?? 'Ilmpurity';
             $pageTitle = $course->meta_title ?? ($course->title . ' | ' . $siteName);
             $pageDescription = $course->meta_description ?? $course->short_description ?? $course->description ?? 'Learn with our comprehensive course';
             $pageKeywords = $course->meta_keywords ?? ($course->title . ', online course, learning, ' . ($system->fields['keywords'] ?? 'LMS'));

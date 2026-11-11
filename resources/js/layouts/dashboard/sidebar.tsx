@@ -17,7 +17,7 @@ const DashboardSidebar = () => {
                <SidebarMenu>
                   <SidebarMenuItem className="pt-1 pb-5">
                      <Link href="/" prefetch>
-                        <AppLogo className="h-[26px]" />
+                        <AppLogo className="h-12" />
                      </Link>
                   </SidebarMenuItem>
                </SidebarMenu>

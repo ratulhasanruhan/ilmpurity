@@ -13,7 +13,7 @@ const AuthLayout = ({ children, title, description }: Props) => {
       <Main>
          <div className="bg-background flex min-h-svh flex-col items-center justify-center gap-10 p-6 md:p-10">
             <Link href="/">
-               <AppLogo className="h-9" />
+               <AppLogo className="h-14" />
             </Link>
 
             <div className="w-full max-w-sm">

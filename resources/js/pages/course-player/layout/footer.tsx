@@ -19,7 +19,7 @@ const Footer = () => {
                <div className="w-full space-y-5 md:max-w-[300px]">
                   <div>
                      <Link href="/">
-                        <AppLogo className="h-7" theme="light" />
+                        <AppLogo className="h-12" theme="light" />
                      </Link>
                   </div>
 

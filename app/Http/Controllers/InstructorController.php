@@ -55,7 +55,7 @@ class InstructorController extends Controller
 
         // Generate meta tags for SEO and social sharing
         $system = app('system_settings');
-        $siteName = $system->fields['name'] ?? 'Appibrium';
+        $siteName = $system->fields['name'] ?? 'Ilmpurity';
         $siteUrl = request()->url();
 
         $pageTitle = $instructor->user->name . ' - Expert Instructor | ' . $siteName;

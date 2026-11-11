@@ -21,7 +21,7 @@ const Index = () => {
                <div className="w-full space-y-5 md:max-w-[300px]">
                   <div>
                      <Link href="/">
-                        <AppLogo className="h-7" />
+                        <AppLogo className="h-12" />
                      </Link>
                   </div>
 

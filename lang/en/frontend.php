@@ -109,7 +109,7 @@ return [
     'blog_list_alt' => 'Blog List',
     'blog_page_description' => 'Read :total+ articles and tutorials from our instructors and team. Stay updated with insights, news, and how‑to guides.',
     'blog_page_keywords' => 'blogs, articles, tutorials, news, posts, learning, education',
-    'default_site_name' => 'Appibrium',
+    'default_site_name' => 'Ilmpurity',
 
     // Zoom Live Class
     'loading_zoom_sdk' => 'Loading Zoom SDK...',

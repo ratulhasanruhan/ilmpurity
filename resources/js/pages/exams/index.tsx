@@ -22,7 +22,7 @@ const Index = (props: ExamsIndexProps) => {
    const urlParams = getQueryParams(url);
 
    // Generate meta information based on category
-   const siteName = system?.fields?.name || 'Appibrium';
+   const siteName = system?.fields?.name || 'Ilmpurity';
    const totalExams = exams?.total || 0;
    const siteUrl = url;
    const siteOrigin = typeof window !== 'undefined' ? window.location.origin : url.split('/').slice(0, 3).join('/');

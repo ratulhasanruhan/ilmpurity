@@ -6,17 +6,17 @@ const AppLogo = ({ className, theme }: { theme?: 'light' | 'dark'; className?: s
    const { system } = usePage<SharedData>().props;
 
    if (theme && theme === 'dark') {
-      return <img src={system.fields.logo_dark || ''} alt={system.fields.name || ''} className={cn('block h-6 w-auto', className)} />;
+      return <img src={system.fields.logo_dark || ''} alt={system.fields.name || ''} className={cn('block h-12 w-auto', className)} />;
    }
 
    if (theme && theme === 'light') {
-      return <img src={system.fields.logo_light || ''} alt={system.fields.name || ''} className={cn('block h-6 w-auto', className)} />;
+      return <img src={system.fields.logo_light || ''} alt={system.fields.name || ''} className={cn('block h-12 w-auto', className)} />;
    }
 
    return (
       <>
-         <img src={system.fields.logo_dark || ''} alt={system.fields.name || ''} className={cn('block h-6 w-auto dark:hidden', className)} />
-         <img src={system.fields.logo_light || ''} alt={system.fields.name || ''} className={cn('hidden h-6 w-auto dark:block', className)} />
+         <img src={system.fields.logo_dark || ''} alt={system.fields.name || ''} className={cn('block h-12 w-auto dark:hidden', className)} />
+         <img src={system.fields.logo_light || ''} alt={system.fields.name || ''} className={cn('hidden h-12 w-auto dark:block', className)} />
       </>
    );
 };
